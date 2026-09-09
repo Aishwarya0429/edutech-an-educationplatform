@@ -33,46 +33,30 @@ StudyNotion is a modern, full-stack ed-tech platform built on the **MERN** stack
 - **Database:** MongoDB & Mongoose ODM.
 - **External Integrations:** Razorpay (Payments), Cloudinary (Media Hosting).
 
----
+## 🚀 Getting Started
 
-## 📅 5-Day Development Roadmap (5 Commits / Day)
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB
 
-### 📌 Day 1: Architecture, Server & Auth Foundation
-- [x] **Commit 1.1:** `chore: initial commit - project scaffolding and 5-day roadmap`
-- [x] **Commit 1.2:** `feat(server): setup express app, database connection, and config`
-- [ ] **Commit 1.3:** `feat(models): define core mongoose schemas and relationships`
-- [ ] **Commit 1.4:** `feat(utils): implement nodemailer mail sender and otp generator`
-- [ ] **Commit 1.5:** `feat(auth): add signup, login, sendotp, and jwt auth middlewares`
+### Setup Instructions
 
-### 📌 Day 2: Course System & Media Services
-- [ ] **Commit 2.1:** `feat(services): integrate cloudinary media upload utility`
-- [ ] **Commit 2.2:** `feat(controllers): category management and admin category handlers`
-- [ ] **Commit 2.3:** `feat(controllers): course creation, edit, and deletion controllers`
-- [ ] **Commit 2.4:** `feat(controllers): section and sub-section curriculum crud apis`
-- [ ] **Commit 2.5:** `feat(controllers): profile controllers and course progress tracker`
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Aishwarya0429/edutech-an-educationplatform.git
+   cd edutech-an-educationplatform
+   ```
 
-### 📌 Day 3: Frontend Foundation & Auth UI
-- [ ] **Commit 3.1:** `feat(client): initialize react client and configure tailwind css theme`
-- [ ] **Commit 3.2:** `feat(client): setup redux store and auth/profile/cart/course slices`
-- [ ] **Commit 3.3:** `feat(client): create navbar, footer, and core navigation layout`
-- [ ] **Commit 3.4:** `feat(client): build login, signup, otp verification, and password reset pages`
-- [ ] **Commit 3.5:** `feat(client): configure protected routes and role-based redirect handlers`
-
-### 📌 Day 4: Instructor Studio & Course Discovery UI
-- [ ] **Commit 4.1:** `feat(client): create multi-step course creation wizard for instructors`
-- [ ] **Commit 4.2:** `feat(client): build instructor dashboard with analytics and course manager`
-- [ ] **Commit 4.3:** `feat(client): implement course catalog and category exploration cards`
-- [ ] **Commit 4.4:** `feat(client): build course details page with curriculum accordion`
-- [ ] **Commit 4.5:** `feat(client): create lecture video player with lecture progress navigation`
-
-### 📌 Day 5: Checkout, Reviews & Final Polish
-- [ ] **Commit 5.1:** `feat(client): build cart management and wishlist interface`
-- [ ] **Commit 5.2:** `feat(payment): integrate razorpay payment gateway and verify payment signature`
-- [ ] **Commit 5.3:** `feat(reviews): add course rating and review modal and testimonial slider`
-- [ ] **Commit 5.4:** `feat(profile): implement user profile settings and account deletion`
-- [ ] **Commit 5.5:** `chore: build verification, environment configurations, and release polish`
+2. **Server Setup:**
+   ```bash
+   cd server
+   npm install
+   cp .env.example .env
+   npm run dev
+   ```
 
 ---
 
 ## 👤 Author
 - **GitHub:** [@Aishwarya0429](https://github.com/Aishwarya0429)
+
