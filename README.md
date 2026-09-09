@@ -39,7 +39,7 @@ StudyNotion is a modern, full-stack ed-tech platform built on the **MERN** stack
 
 ### 📌 Day 1: Architecture, Server & Auth Foundation
 - [x] **Commit 1.1:** `chore: initial commit - project scaffolding and 5-day roadmap`
-- [ ] **Commit 1.2:** `feat(server): setup express app, database connection, and config`
+- [x] **Commit 1.2:** `feat(server): setup express app, database connection, and config`
 - [ ] **Commit 1.3:** `feat(models): define core mongoose schemas and relationships`
 - [ ] **Commit 1.4:** `feat(utils): implement nodemailer mail sender and otp generator`
 - [ ] **Commit 1.5:** `feat(auth): add signup, login, sendotp, and jwt auth middlewares`
