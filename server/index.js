@@ -21,6 +21,10 @@ app.use(
     })
 );
 
+// Mount Routes
+const userRoutes = require("./routes/User");
+app.use("/api/v1/auth", userRoutes);
+
 // Health Check / Default Route
 app.get("/", (req, res) => {
     return res.json({
