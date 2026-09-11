@@ -30,7 +30,10 @@ app.use(
 
 // Mount Routes
 const userRoutes = require("./routes/User");
+const courseRoutes = require("./routes/Course");
+
 app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/course", courseRoutes);
 
 // Health Check / Default Route
 app.get("/", (req, res) => {
