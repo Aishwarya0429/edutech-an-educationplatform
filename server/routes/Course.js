@@ -33,8 +33,11 @@ const {
 	deleteSubSection,
 } = require("../controllers/Subsection");
 
+// Import Course Progress Controller
+const { updateCourseProgress } = require("../controllers/courseProgress");
+
 // Import Middlewares
-const { auth, isInstructor, isAdmin } = require("../middlewares/auth");
+const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth");
 
 // ********************************************************************************************************
 //                                      Course Routes (Instructors)
@@ -61,6 +64,12 @@ router.post("/deleteSection", auth, isInstructor, deleteSection);
 router.post("/addSubSection", auth, isInstructor, createSubSection);
 router.post("/updateSubSection", auth, isInstructor, updateSubSection);
 router.post("/deleteSubSection", auth, isInstructor, deleteSubSection);
+
+// ********************************************************************************************************
+//                                      Course Progress Routes (Students)
+// ********************************************************************************************************
+
+router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 
 // ********************************************************************************************************
 //                                      Category Routes (Admin only for creation)
