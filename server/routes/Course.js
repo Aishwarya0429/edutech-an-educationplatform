@@ -19,14 +19,27 @@ const {
 	categoryPageDetails,
 } = require("../controllers/Category");
 
+// Import Section Controllers
+const {
+	createSection,
+	updateSection,
+	deleteSection,
+} = require("../controllers/Section");
+
+// Import SubSection Controllers
+const {
+	createSubSection,
+	updateSubSection,
+	deleteSubSection,
+} = require("../controllers/Subsection");
+
 // Import Middlewares
-const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth");
+const { auth, isInstructor, isAdmin } = require("../middlewares/auth");
 
 // ********************************************************************************************************
-//                                      Course Routes
+//                                      Course Routes (Instructors)
 // ********************************************************************************************************
 
-// Courses can only be created, edited, or deleted by Instructors
 router.post("/createCourse", auth, isInstructor, createCourse);
 router.post("/editCourse", auth, isInstructor, editCourse);
 router.post("/getCourseDetails", getCourseDetails);
@@ -34,6 +47,20 @@ router.get("/getAllCourses", getAllCourses);
 router.post("/getFullCourseDetails", auth, getFullCourseDetails);
 router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses);
 router.delete("/deleteCourse", auth, isInstructor, deleteCourse);
+
+// ********************************************************************************************************
+//                                      Section & SubSection Routes (Instructors)
+// ********************************************************************************************************
+
+// Sections
+router.post("/addSection", auth, isInstructor, createSection);
+router.post("/updateSection", auth, isInstructor, updateSection);
+router.post("/deleteSection", auth, isInstructor, deleteSection);
+
+// SubSections
+router.post("/addSubSection", auth, isInstructor, createSubSection);
+router.post("/updateSubSection", auth, isInstructor, updateSubSection);
+router.post("/deleteSubSection", auth, isInstructor, deleteSubSection);
 
 // ********************************************************************************************************
 //                                      Category Routes (Admin only for creation)
