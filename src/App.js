@@ -14,6 +14,11 @@ import AddCourse from "./components/core/Dashboard/AddCourse";
 import EditCourse from "./components/core/Dashboard/EditCourse";
 import MyCourses from "./components/core/Dashboard/MyCourses";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import Catalog from "./pages/Catalog";
+import CourseDetails from "./pages/CourseDetails";
+import ViewCourse from "./pages/ViewCourse";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
+import Error from "./pages/Error";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import { ACCOUNT_TYPE } from "./utils/constants";
@@ -46,6 +51,10 @@ function App() {
             </main>
           }
         />
+
+        {/* Public Catalog & Course Exploration */}
+        <Route path="/catalog/:catalogName" element={<Catalog />} />
+        <Route path="/courses/:courseId" element={<CourseDetails />} />
 
         {/* Public & Open Routes (Only non-authenticated users) */}
         <Route
@@ -112,6 +121,25 @@ function App() {
             </>
           )}
         </Route>
+
+        {/* Protected View Course Player Routes for Enrolled Students */}
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <Route
+              path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+              element={<VideoDetails />}
+            />
+          )}
+        </Route>
+
+        {/* 404 Fallback Route */}
+        <Route path="*" element={<Error />} />
       </Routes>
 
       {/* Footer */}
