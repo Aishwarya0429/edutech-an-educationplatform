@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/common/Navbar";
@@ -9,10 +10,15 @@ import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import Dashboard from "./pages/Dashboard";
 import MyProfile from "./components/core/Dashboard/MyProfile";
+import AddCourse from "./components/core/Dashboard/AddCourse";
+import EditCourse from "./components/core/Dashboard/EditCourse";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import { ACCOUNT_TYPE } from "./utils/constants";
 
 function App() {
+  const { user } = useSelector((state) => state.profile);
+
   return (
     <div className="flex min-h-screen w-screen flex-col bg-richblack-900 font-inter">
       {/* Navigation Header */}
@@ -90,6 +96,17 @@ function App() {
           }
         >
           <Route path="dashboard/my-profile" element={<MyProfile />} />
+
+          {/* Instructor Only Routes */}
+          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+            <>
+              <Route path="dashboard/add-course" element={<AddCourse />} />
+              <Route
+                path="dashboard/edit-course/:courseId"
+                element={<EditCourse />}
+              />
+            </>
+          )}
         </Route>
       </Routes>
 
