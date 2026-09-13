@@ -1,6 +1,4 @@
 import { toast } from "react-hot-toast";
-
-import { updateCompletedLectures } from "../../slices/viewCourseSlice";
 import { apiConnector } from "../apiConnector";
 import { courseEndpoints } from "../apis";
 
