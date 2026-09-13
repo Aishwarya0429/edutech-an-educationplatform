@@ -3,6 +3,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
+const dotenv = require("dotenv");
+const database = require("./config/database");
 const { cloudinaryConnect } = require("./config/cloudinary");
 
 dotenv.config();
@@ -32,10 +34,14 @@ app.use(
 const userRoutes = require("./routes/User");
 const courseRoutes = require("./routes/Course");
 const profileRoutes = require("./routes/Profile");
+const paymentRoutes = require("./routes/Payments");
+const contactRoutes = require("./routes/Contact");
 
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/payment", paymentRoutes);
+app.use("/api/v1/reach", contactRoutes);
 
 // Health Check / Default Route
 app.get("/", (req, res) => {

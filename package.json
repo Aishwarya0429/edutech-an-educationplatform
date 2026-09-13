@@ -41,7 +41,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "server": "cd server && npm run dev",
-    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
+    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\"",
+    "postinstall": "node -e \"const fs = require('fs'); const src = 'node_modules/schema-utils/node_modules/ajv'; const dest = 'node_modules/ajv-keywords/node_modules/ajv'; if (fs.existsSync(src) && !fs.existsSync(dest)) { fs.mkdirSync('node_modules/ajv-keywords/node_modules', { recursive: true }); fs.cpSync(src, dest, { recursive: true }); }\""
   },
   "eslintConfig": {
     "extends": [

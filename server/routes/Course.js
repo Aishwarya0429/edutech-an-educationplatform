@@ -36,6 +36,13 @@ const {
 // Import Course Progress Controller
 const { updateCourseProgress } = require("../controllers/courseProgress");
 
+// Import Rating and Review Controllers
+const {
+	createRating,
+	getAverageRating,
+	getAllRatingReview,
+} = require("../controllers/RatingAndReview");
+
 // Import Middlewares
 const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth");
 
@@ -78,5 +85,13 @@ router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 router.post("/createCategory", auth, isAdmin, createCategory);
 router.get("/showAllCategories", showAllCategories);
 router.post("/getCategoryPageDetails", categoryPageDetails);
+
+// ********************************************************************************************************
+//                                      Rating and Review Routes
+// ********************************************************************************************************
+
+router.post("/createRating", auth, isStudent, createRating);
+router.get("/getAverageRating", getAverageRating);
+router.get("/getReviews", getAllRatingReview);
 
 module.exports = router;
